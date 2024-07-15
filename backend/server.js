@@ -1,14 +1,14 @@
 import { Hono } from "hono";
-import artistRouter from './routes/artist'
+import { serveStatic } from "hono/bun";
+import appRouter from "./routes";
 
 const app = new Hono();
-app.get("/", (c) => c.text("Hello Bun!"));
-app.route('/artist', artistRouter)
+app.route("/", appRouter);
 
- 
-
-Bun.serve({
-  port: Bun.env.PORT||3000,
-  hostname: Bun.env.HOST||"localhost",
-  fetch:app.fetch
+const server = Bun.serve({
+  port: Bun.env.PORT || 0,
+  hostname: Bun.env.HOST || "localhost",
+  fetch: app.fetch,
 });
+
+console.log(`Server is running on ${server.url}`)
