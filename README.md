@@ -1,4 +1,10 @@
-# darwin
+# Read Me
+
+Before anything else I would like to add that I know `.env` files should not be pushed to git.
+It's just a test project and I figured it's easier this way.
+
+## Install Bun
+Visit (Bun)[https://bun.sh/] and install bun on your machine
 
 To install dependencies:
 
@@ -8,8 +14,3 @@ bun install
 
 To run:
 
-```bash
-bun run index.js
-```
-
-This project was created using `bun init` in bun v1.0.26. [Bun](https://bun.sh) is a fast all-in-one JavaScript runtime.
