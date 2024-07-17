@@ -1,8 +1,9 @@
 import { Hono } from "hono";
+import { createUser, getAllArtists } from "../controllers/artist.controller";
 const artistRouter = new Hono()
 
-artistRouter.get('/', (c) => {
-  return c.json({ count:2}) }) 
+artistRouter.get('/', createUser) 
+
 artistRouter.get('/:id', (c) => {
   const id = c.req.param('id')
   return c.json({name:  id })
