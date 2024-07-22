@@ -13,7 +13,7 @@ const albumSchema = new Schema({
 });
 
 const artistSchema = new Schema({
-  name: { type: String, required: true },
+  name: { type: String, unique:true, required: true },
   albums: [albumSchema],
 });
 

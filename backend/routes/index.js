@@ -8,7 +8,7 @@ const appRouter = new Hono()
   .use(logger(customLogger))
   .use("/*", serveStatic({ root: "../client/dist/" }))
   .get(api(), (c) => c.text("/api"))
-  .route(api("/artist"), artistRouter);
+  .route(api("/artists"), artistRouter);
 
 export default appRouter;
 
