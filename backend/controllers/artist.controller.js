@@ -12,28 +12,6 @@ export async function getAll(c, next) {
   }
 }
 
-export async function getAllAlbums(c, next) {
-  try {
-    const allAlbums = await artistModel.aggregate([
-      {
-        $unwind: {
-          path: "$albums",
-        },
-      },
-      {
-        $project: {
-          albumTitle: "$albums.title",
-        },
-      },
-    ]);
-
-    return c.json(allAlbums);
-  } catch (error) {
-    console.log("Could not get albums", error);
-    return c.notFound();
-  }
-}
-
 export async function getArtistAlbums(c, next) {
   try {
     const artistId = await c.req.param("id");
