@@ -1,22 +1,22 @@
-import solidLogo from "./assets/solid.svg";
-import viteLogo from "/vite.svg";
 import "./App.css";
 import { Route } from "@solidjs/router";
 import { Router } from "@solidjs/router";
+import Artists from "./components/artists/Artists.jsx";
+import Artist from "./components/artist/Artist.jsx";
+import Search from "./components/search/search.jsx";
+import Album from "./components/album/album.jsx";
 
 function App() {
   return (
     <>
-      <input></input>
+      {/* <Search/> */}
       <Router>
-        <Route path="/artists" component={test("asdasd")} />
-        <Route path="/artist" component={test("wrrqwe")} />
+        <Route path="/" component={Artists} />
+        <Route path="/albums/:id" component={Artist} />
+        <Route path="/albums/:id/:title" component={Album} />
       </Router>
     </>
   );
 }
 
-function test(t) {
-  return () => <h1>{t}</h1>;
-}
 export default App;
